@@ -1,0 +1,928 @@
+/* Global Styles */
+:root {
+  --primary-color: #4a6fa5;
+  --primary-dark: #3a5a80;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --white: #ffffff;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #ced4da;
+  --gray-500: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+  --border-radius: 0.25rem;
+  --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--gray-800);
+  background-color: var(--gray-100);
+  min-height: 100vh;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(74, 111, 165, 0.25);
+}
+
+.error-message {
+  color: var(--danger-color);
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(220, 53, 69, 0.1);
+  border-radius: var(--border-radius);
+}
+
+/* Login and Register Styles */
+.login-container, .register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  background-color: var(--gray-100);
+}
+
+.login-card, .register-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.login-card h2, .register-card h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-group.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.form-group.checkbox input {
+  width: auto;
+  margin-right: 0.5rem;
+  margin-bottom: 0;
+}
+
+.form-group.checkbox label {
+  margin-bottom: 0;
+}
+
+.login-button, .register-button {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.login-button:hover, .register-button:hover {
+  background-color: var(--primary-dark);
+}
+
+.login-link, .register-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.login-link span, .register-link span {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.login-link span:hover, .register-link span:hover {
+  text-decoration: underline;
+}
+
+/* Chat Interface Styles */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--white);
+  box-shadow: var(--box-shadow);
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.chat-header h2 {
+  margin: 0;
+}
+
+.chat-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chat-actions button {
+  background-color: var(--white);
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.chat-actions button:hover {
+  background-color: var(--gray-200);
+}
+
+.messages-container {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: var(--gray-100);
+}
+
+.empty-chat, .loading-messages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: var(--gray-600);
+  font-style: italic;
+}
+
+.message {
+  max-width: 70%;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  position: relative;
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border-bottom-right-radius: 0.25rem;
+}
+
+.bot-message {
+  align-self: flex-start;
+  background-color: var(--gray-300);
+  color: var(--gray-800);
+  border-bottom-left-radius: 0.25rem;
+}
+
+.message-content {
+  word-break: break-word;
+}
+
+.message-time {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-top: 0.25rem;
+  text-align: right;
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.typing-indicator span {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--gray-600);
+  border-radius: 50%;
+  animation: typing 1s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.5rem);
+  }
+}
+
+.message-form {
+  display: flex;
+  padding: 1rem;
+  background-color: var(--white);
+  border-top: 1px solid var(--gray-300);
+}
+
+.message-form input {
+  flex: 1;
+  margin-bottom: 0;
+  margin-right: 0.5rem;
+}
+
+.message-form button {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.message-form button:hover {
+  background-color: var(--primary-dark);
+}
+
+.message-form button:disabled {
+  background-color: var(--gray-400);
+}
+
+/* Admin Panel Styles */
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: var(--white);
+  min-height: 100vh;
+  box-shadow: var(--box-shadow);
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--gray-300);
+}
+
+.admin-header h2 {
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.admin-header button {
+  background-color: var(--primary-color);
+  color: var(--white);
+  margin-left: 0.5rem;
+}
+
+.admin-header button:hover {
+  background-color: var(--primary-dark);
+}
+
+.admin-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .admin-content {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .faq-list-section {
+    grid-column: 1 / -1;
+  }
+}
+
+.add-faq-section, .upload-pdf-section, .faq-list-section {
+  background-color: var(--gray-100);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.add-faq-section h3, .upload-pdf-section h3, .faq-list-section h3 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.extracted-faqs {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--gray-300);
+  padding-top: 1.5rem;
+}
+
+.extracted-faqs h4 {
+  margin-bottom: 1rem;
+  color: var(--gray-700);
+}
+
+.extracted-faq {
+  background-color: var(--white);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.extracted-faq button {
+  background-color: var(--success-color);
+  color: var(--white);
+  margin-top: 0.5rem;
+}
+
+.extracted-faq button:hover {
+  background-color: #218838;
+}
+
+.faq-item {
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.faq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.faq-question {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--gray-800);
+  flex: 1;
+}
+
+.delete-faq {
+  background-color: var(--danger-color);
+  color: var(--white);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.delete-faq:hover {
+  background-color: #c82333;
+}
+
+.faq-answer {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: var(--gray-700);
+}
+
+.faq-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: var(--gray-600);
+  border-top: 1px solid var(--gray-300);
+  padding-top: 0.75rem;
+}
+
+.loading-faqs, .no-faqs {
+  text-align: center;
+  padding: 2rem;
+  color: var(--gray-600);
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .chat-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .message {
+    max-width: 85%;
+  }
+  
+  .admin-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .admin-header button {
+    margin-left: 0;
+    margin-right: 0.5rem;
+  }
+}
+/* Add these styles to your existing CSS file */
+
+/* Drag and Drop Uploader Styles */
+.drag-drop-uploader {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.upload-area {
+  border: 2px dashed var(--gray-300);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: var(--gray-50);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+}
+
+.upload-area:hover {
+  border-color: var(--primary-color);
+  background-color: rgba(67, 97, 238, 0.05);
+}
+
+.upload-area.dragging {
+  border-color: var(--primary-color);
+  background-color: rgba(67, 97, 238, 0.1);
+  transform: scale(1.02);
+}
+
+.upload-icon {
+  margin-bottom: 1rem;
+  color: var(--gray-400);
+}
+
+.upload-area:hover .upload-icon,
+.upload-area.dragging .upload-icon {
+  color: var(--primary-color);
+}
+.upload-text {
+  color: var(--gray-600);
+}
+
+.primary-text {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.secondary-text {
+  font-size: 0.9rem;
+}
+
+.browse-text {
+  color: var(--primary-color);
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--border-radius);
+  background-color: var(--white);
+  margin-bottom: 1rem;
+  box-shadow: var(--box-shadow-sm);
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.file-icon {
+  color: #f40f02;
+  background-color: rgba(244, 15, 2, 0.1);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-name {
+  font-weight: 500;
+  color: var(--gray-800);
+  margin: 0;
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-type {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  margin: 0;
+}
+
+.remove-file {
+  background: none;
+  border: none;
+  color: var(--gray-500);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.remove-file:hover {
+  background-color: var(--gray-100);
+  color: var(--danger-color);
+}
+
+.upload-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.3);
+}
+
+.upload-button:disabled {
+  background: var(--gray-300);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.upload-button .spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.submit-upload {
+  display: none; /* Hide this since we're using the upload button in the DragDropUploader */
+}
+
+/* Extracted FAQs styling enhancement */
+.extracted-faqs {
+  margin-top: 2rem;
+  background-color: var(--gray-50);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  border: 1px solid var(--gray-200);
+}
+
+.extracted-faqs h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--gray-800);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.extracted-faqs h4::before {
+  content: '📄';
+}
+
+.extracted-faq {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--box-shadow-sm);
+  border-left: 3px solid var(--primary-light);
+  transition: all 0.3s ease;
+}
+
+.extracted-faq:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow-md);
+}
+
+.extracted-faq:last-child {
+  margin-bottom: 0;
+}
+
+.extracted-faq .faq-question {
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 0.75rem;
+}
+
+.extracted-faq .faq-answer {
+  color: var(--gray-600);
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.extracted-faq .faq-keywords {
+  font-size: 0.85rem;
+  color: var(--gray-500);
+  margin-bottom: 1rem;
+}
+
+.extracted-faq button {
+  background-color: var(--success-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.extracted-faq button::before {
+  content: '+';
+  font-weight: bold;
+}
+
+.extracted-faq button:hover {
+  background-color: var(--success-dark);
+  transform: translateY(-1px);
+}
+
+/* Dark mode adjustments for drag and drop uploader */
+@media (prefers-color-scheme: dark) {
+  .upload-area {
+    background-color: var(--gray-100);
+    border-color: var(--gray-400);
+  }
+  
+  .upload-area:hover, .upload-area.dragging {
+    background-color: rgba(67, 97, 238, 0.15);
+    border-color: var(--primary-light);
+  }
+  
+  .upload-icon {
+    color: var(--gray-500);
+  }
+  
+  .upload-text {
+    color: var(--gray-400);
+  }
+  
+  .browse-text {
+    color: var(--primary-light);
+  }
+  
+  .file-preview {
+    background-color: var(--gray-100);
+    border-color: var(--gray-400);
+  }
+  
+  .file-icon {
+    background-color: rgba(244, 15, 2, 0.2);
+  }
+  
+  .file-name {
+    color: var(--gray-300);
+  }
+  
+  .file-type {
+    color: var(--gray-500);
+  }
+  
+  .remove-file:hover {
+    background-color: var(--gray-300);
+  }
+  
+  .extracted-faqs {
+    background-color: var(--gray-100);
+    border-color: var(--gray-400);
+  }
+  
+  .extracted-faqs h4 {
+    color: var(--gray-300);
+  }
+  
+  .extracted-faq {
+    background-color: var(--gray-50);
+    border-left-color: var(--primary-color);
+  }
+  
+  .extracted-faq .faq-question {
+    color: var(--gray-300);
+  }
+  
+  .extracted-faq .faq-answer {
+    color: var(--gray-400);
+  }
+}
+
+/* Responsive adjustments for drag and drop uploader */
+@media (max-width: 768px) {
+  .upload-area {
+    padding: 1.5rem;
+    min-height: 150px;
+  }
+  
+  .upload-icon svg {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .primary-text {
+    font-size: 1rem;
+  }
+  
+  .file-preview {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .file-info {
+    width: 100%;
+  }
+  
+  .remove-file {
+    align-self: flex-end;
+    margin-top: -2.5rem;
+  }
+  
+  .file-name {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .upload-area {
+    padding: 1rem;
+    min-height: 120px;
+  }
+  
+  .upload-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .primary-text {
+    font-size: 0.9rem;
+  }
+  
+  .secondary-text {
+    font-size: 0.8rem;
+  }
+  
+  .file-name {
+    max-width: 150px;
+  }
+}
+/* Password visibility toggle styles */
+.password-group {
+  position: relative;
+}
+
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-container input {
+  width: 100%;
+  padding-right: 40px; /* Make room for the toggle button */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-500);
+  transition: color 0.2s ease;
+}
+
+.toggle-password:hover {
+  color: var(--gray-700);
+}
+
+.toggle-password svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .toggle-password {
+    color: var(--gray-400);
+  }
+  
+  .toggle-password:hover {
+    color: var(--gray-200);
+  }
+}
+
