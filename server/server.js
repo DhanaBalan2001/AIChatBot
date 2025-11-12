@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-    origin: ['https://roaring-kashata-c6e266.netlify.app'],
+    origin: ['https://ai-chatbot-dhanabalan.netlify.app'],
     methods: ['GET', 'POST', 'DELETE'],
     credentials: true
   }))
