@@ -175,18 +175,6 @@ POST   /api/faq/upload     // Process documents
 
 ---
 
-## 🎨 **VISUAL INTERFACE PREVIEW**
-
-<div align="center">
-
-| 💬 **Chat Interface** | 👨💼 **Admin Dashboard** | 📄 **PDF Processor** |
-|:---:|:---:|:---:|
-| ![Chat](https://via.placeholder.com/300x200/4ECDC4/FFFFFF?text=AI+CHAT) | ![Admin](https://via.placeholder.com/300x200/FF6B6B/FFFFFF?text=ADMIN+HUB) | ![PDF](https://via.placeholder.com/300x200/45B7D1/FFFFFF?text=PDF+AI) |
-
-</div>
-
----
-
 ## 🤝 **COLLABORATION PROTOCOL**
 
 ```bash
@@ -208,14 +196,13 @@ git push origin feature/neural-enhancement
 │                        👨💻 DHANABALAN                          │
 ├─────────────────────────────────────────────────────────────────┤
 │  🎯 Full-Stack AI Developer  │  🚀 Innovation Architect         │
-│  🌐 Portfolio: [Link]        │  💼 LinkedIn: [Profile]          │
-│  📧 Contact: [Email]         │  🔗 GitHub: [Repository]         │
+│  🌐 Portfolio: [Link]        │ 🔗 GitHub: [Repository]          │
+│                               │                                   │
 ╰─────────────────────────────────────────────────────────────────╯
 ```
 
 [![Portfolio](https://img.shields.io/badge/🌐_PORTFOLIO-Visit_Now-FF6B6B?style=for-the-badge)](#)
-[![LinkedIn](https://img.shields.io/badge/💼_LINKEDIN-Connect-0077B5?style=for-the-badge&logo=linkedin)](#)
-[![GitHub](https://img.shields.io/badge/🔗_GITHUB-Follow-181717?style=for-the-badge&logo=github)](#)
+[![GitHub](https://img.shields.io/badge/🔗_GITHUB-Follow-181717?style=for-the-badge&logo=github)](https://github.com/DhanaBalan2001)
 
 </div>
 
